@@ -5,13 +5,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src='/script/app.js'></script>
   </head>
     <body>
       <h1><%= title %></h1>
       <p>Welcome to <%= title %></p>
       <form>
-          <input type="text" size="30"/>
-          <input type="button" value="Submit"/>
+          <input id="word" type="text" size="30" required/>
+          <input id="button" type="button" value="Submit"/>
       </form>
     </body>
 </html>
