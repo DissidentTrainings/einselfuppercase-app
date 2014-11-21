@@ -1,9 +1,28 @@
 $( document ).ready(function() {
-
+    
+    // hide these elements on init
     $('#button').hide();
-// Handler for .ready() called.
+    $('#upperview').hide();
+    
+    // make it upper case and einself onclick
+    $('#button').click(function() {
+        var value = $('#word').val();
+        $.ajax({
+            url: "/upper/"+value,
+            context: document.body,
+            dataType: 'json'
+        }).done(function(data) {
+            // hide the form
+            $('#formview').hide();
+            // show the result view
+            $('#uppercaseword').text(data.result);
+            $('#upperview').show();
+        });
+    });
+    
+    // validate when the contents of the for changes
     $('#word').change(function(evt){
-        var value = $('#word').value;
+        var value = $('#word').val();
         $.ajax({
             url: "/validate/"+value,
             context: document.body,
@@ -13,5 +32,5 @@ $( document ).ready(function() {
                 $('#button').show();
             }
         });
-    })
+    });
 });
