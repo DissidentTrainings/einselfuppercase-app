@@ -6,11 +6,11 @@ var validate = require('einselfuppercase').validate;
 /* GET users listing. */
 router.get('/:word', function(req, res) {
 
-  console.log(req.params.word);
 
-  var result = validate('hans');
-  console.log(result);
-  res.send('respond with a resource');
+// Validate the input
+  var result = validate(req.params.word);
+// Response to browser with json
+  res.json({'result': result});
 });
 
 module.exports = router;
