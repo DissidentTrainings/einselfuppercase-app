@@ -3,12 +3,15 @@ $( document ).ready(function() {
     $('#button').hide();
 // Handler for .ready() called.
     $('#word').change(function(evt){
+        var value = $('#word').value;
         $.ajax({
-            url: "/validate/hans",
+            url: "/validate/"+value,
             context: document.body,
             dataType: 'json'
-        }).done(function() {
-            $('#button').show();
+        }).done(function(data) {
+            if (data.result == true) {
+                $('#button').show();
+            }
         });
     })
 });

@@ -10,7 +10,7 @@ router.get('/:word', function(req, res) {
 // Validate the input
   var result = validate(req.params.word);
 // Response to browser with json
-  res.json({'result': result});
+  res.status(200).json({'result': result});
 });
 
 module.exports = router;
